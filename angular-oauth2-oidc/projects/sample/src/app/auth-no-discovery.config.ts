@@ -1,29 +1,27 @@
 import { AuthConfig } from 'angular-oauth2-oidc';
 
 export const noDiscoveryAuthConfig: AuthConfig = {
-  clientId:
-    '1004270452653-m396kcs7jc3970turlp7ffh6bv4t1b86.apps.googleusercontent.com',
+  clientId:   'OAuth2Agent',
   redirectUri: 'http://localhost:4200/index.html',
   postLogoutRedirectUri: '',
-  loginUrl: 'https://accounts.google.com/o/oauth2/v2/auth',
-  scope: 'openid profile email',
+  loginUrl: 'http://openam.example.com:58080/openam',
+  scope: 'openid email profile',
   resource: '',
   rngUrl: '',
-  oidc: true,
+  oidc: false,
   requestAccessToken: true,
   options: null,
-  issuer: 'https://accounts.google.com',
+  issuer: 'http://openam.example.com:58080/openam',
   clearHashAfterLogin: true,
-  tokenEndpoint: 'https://www.googleapis.com/oauth2/v4/token',
-  userinfoEndpoint: 'https://www.googleapis.com/oauth2/v3/userinfo',
+  tokenEndpoint: 'http://openam.example.com:58080/openam/oauth2/access_token',
+  userinfoEndpoint: 'http://openam.example.com:58080/openam/oauth2/userinfo',
   responseType: 'token',
   showDebugInformation: true,
   silentRefreshRedirectUri: 'http://localhost:4200/silent-refresh.html',
   silentRefreshMessagePrefix: '',
   silentRefreshShowIFrame: false,
   silentRefreshTimeout: 20000,
-  dummyClientSecret: null,
-  requireHttps: 'remoteOnly',
+  dummyClientSecret: null,   
   strictDiscoveryDocumentValidation: false,
   jwks: {
     keys: [
@@ -62,5 +60,7 @@ export const noDiscoveryAuthConfig: AuthConfig = {
   sessionCheckIntervall: 3000,
   sessionCheckIFrameName: 'angular-oauth-oidc-check-session-iframe',
   disableAtHashCheck: false,
-  skipSubjectCheck: false
+  skipSubjectCheck: false,
+  useHttpBasicAuthForPasswordFlow: true,
+  requireHttps: false,
 };
