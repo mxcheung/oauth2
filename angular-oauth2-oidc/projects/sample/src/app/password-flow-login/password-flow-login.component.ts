@@ -1,6 +1,7 @@
 import { authPasswordFlowConfig } from '../auth-password-flow.config';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Component, OnInit } from '@angular/core';
+import { noDiscoveryAuthConfig } from './../auth-no-discovery.config';
 
 @Component({
   selector: 'app-password-flow-login',
@@ -17,8 +18,9 @@ export class PasswordFlowLoginComponent implements OnInit {
     // This is just needed b/c this demo uses both,
     // implicit flow as well as password flow
 
-    this.oauthService.configure(authPasswordFlowConfig);
-    this.oauthService.loadDiscoveryDocument();
+    //    this.oauthService.configure(authPasswordFlowConfig);
+    //  this.oauthService.loadDiscoveryDocument();
+    this.oauthService.configure(noDiscoveryAuthConfig);
   }
 
   ngOnInit() {}
