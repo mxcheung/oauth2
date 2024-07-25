@@ -19,6 +19,9 @@ RESPONSE=$(curl -s -X POST $AUTH_URL \
 # Extract the access token from the response using jq
 ACCESS_TOKEN=$(echo $RESPONSE | jq -r '.access_token')
 
+# Extract the access token using grep and sed
+access_token=$(echo $response | grep -oP '(?<="access_token": ")[^"]*')
+
 # Check if the access token was obtained successfully
 if [ "$ACCESS_TOKEN" != "null" ]; then
     echo "Access Token: $ACCESS_TOKEN"
